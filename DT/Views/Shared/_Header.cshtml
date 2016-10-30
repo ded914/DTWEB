@@ -44,8 +44,9 @@
             </li>
         </ul>
     </div>*@
-    <ul class="nav navbar-nav navbar-right">
+    @*<ul class="nav navbar-nav navbar-right">
         <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink", style = "font-size: 16px"})</li>
         <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink", style = "font-size: 16px" })</li>
-    </ul>
+    </ul>*@
+    @Html.Partial("_LoginPartial")
 </nav>

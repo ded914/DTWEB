@@ -15,7 +15,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>DT</RootNamespace>
     <AssemblyName>DT</AssemblyName>
-    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
@@ -25,6 +25,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -104,6 +105,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Net.Http.Extensions, Version=2.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\net45\System.Net.Http.Extensions.dll</HintPath>
@@ -126,8 +128,7 @@
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
       <Private>True</Private>
@@ -139,9 +140,7 @@
     <Reference Include="System.Web.Optimization">
       <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
     </Reference>
-    <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
-    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Abstractions" />
     <Reference Include="System.Web.Routing" />
     <Reference Include="System.Xml" />
@@ -180,6 +179,7 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
+    <Reference Include="System.Xml.Linq" />
     <Reference Include="WebGrease">
       <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
     </Reference>
@@ -282,6 +282,8 @@
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.js" />
@@ -391,6 +393,121 @@
     <Content Include="Vendor\fontawesome\css\font-awesome.min.css" />
     <Content Include="Vendor\fontawesome\fonts\._fontawesome-webfont.svg" />
     <Content Include="Vendor\fontawesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="Vendor\iCheck\icheck.js" />
+    <Content Include="Vendor\iCheck\icheck.min.js" />
+    <Content Include="Vendor\iCheck\skins\all.css" />
+    <Content Include="Vendor\iCheck\skins\flat\aero%402x.png" />
+    <Content Include="Vendor\iCheck\skins\flat\aero.css" />
+    <Content Include="Vendor\iCheck\skins\flat\aero.png" />
+    <Content Include="Vendor\iCheck\skins\flat\blue%402x.png" />
+    <Content Include="Vendor\iCheck\skins\flat\blue.css" />
+    <Content Include="Vendor\iCheck\skins\flat\blue.png" />
+    <Content Include="Vendor\iCheck\skins\flat\flat%402x.png" />
+    <Content Include="Vendor\iCheck\skins\flat\flat.css" />
+    <Content Include="Vendor\iCheck\skins\flat\flat.png" />
+    <Content Include="Vendor\iCheck\skins\flat\green%402x.png" />
+    <Content Include="Vendor\iCheck\skins\flat\green.css" />
+    <Content Include="Vendor\iCheck\skins\flat\green.png" />
+    <Content Include="Vendor\iCheck\skins\flat\grey%402x.png" />
+    <Content Include="Vendor\iCheck\skins\flat\grey.css" />
+    <Content Include="Vendor\iCheck\skins\flat\grey.png" />
+    <Content Include="Vendor\iCheck\skins\flat\orange%402x.png" />
+    <Content Include="Vendor\iCheck\skins\flat\orange.css" />
+    <Content Include="Vendor\iCheck\skins\flat\orange.png" />
+    <Content Include="Vendor\iCheck\skins\flat\pink%402x.png" />
+    <Content Include="Vendor\iCheck\skins\flat\pink.css" />
+    <Content Include="Vendor\iCheck\skins\flat\pink.png" />
+    <Content Include="Vendor\iCheck\skins\flat\purple%402x.png" />
+    <Content Include="Vendor\iCheck\skins\flat\purple.css" />
+    <Content Include="Vendor\iCheck\skins\flat\purple.png" />
+    <Content Include="Vendor\iCheck\skins\flat\red%402x.png" />
+    <Content Include="Vendor\iCheck\skins\flat\red.css" />
+    <Content Include="Vendor\iCheck\skins\flat\red.png" />
+    <Content Include="Vendor\iCheck\skins\flat\yellow%402x.png" />
+    <Content Include="Vendor\iCheck\skins\flat\yellow.css" />
+    <Content Include="Vendor\iCheck\skins\flat\yellow.png" />
+    <Content Include="Vendor\iCheck\skins\flat\_all.css" />
+    <Content Include="Vendor\iCheck\skins\futurico\futurico%402x.png" />
+    <Content Include="Vendor\iCheck\skins\futurico\futurico.css" />
+    <Content Include="Vendor\iCheck\skins\futurico\futurico.png" />
+    <Content Include="Vendor\iCheck\skins\line\aero.css" />
+    <Content Include="Vendor\iCheck\skins\line\blue.css" />
+    <Content Include="Vendor\iCheck\skins\line\green.css" />
+    <Content Include="Vendor\iCheck\skins\line\grey.css" />
+    <Content Include="Vendor\iCheck\skins\line\line%402x.png" />
+    <Content Include="Vendor\iCheck\skins\line\line.css" />
+    <Content Include="Vendor\iCheck\skins\line\line.png" />
+    <Content Include="Vendor\iCheck\skins\line\orange.css" />
+    <Content Include="Vendor\iCheck\skins\line\pink.css" />
+    <Content Include="Vendor\iCheck\skins\line\purple.css" />
+    <Content Include="Vendor\iCheck\skins\line\red.css" />
+    <Content Include="Vendor\iCheck\skins\line\yellow.css" />
+    <Content Include="Vendor\iCheck\skins\line\_all.css" />
+    <Content Include="Vendor\iCheck\skins\minimal\aero%402x.png" />
+    <Content Include="Vendor\iCheck\skins\minimal\aero.css" />
+    <Content Include="Vendor\iCheck\skins\minimal\aero.png" />
+    <Content Include="Vendor\iCheck\skins\minimal\blue%402x.png" />
+    <Content Include="Vendor\iCheck\skins\minimal\blue.css" />
+    <Content Include="Vendor\iCheck\skins\minimal\blue.png" />
+    <Content Include="Vendor\iCheck\skins\minimal\green%402x.png" />
+    <Content Include="Vendor\iCheck\skins\minimal\green.css" />
+    <Content Include="Vendor\iCheck\skins\minimal\green.png" />
+    <Content Include="Vendor\iCheck\skins\minimal\grey%402x.png" />
+    <Content Include="Vendor\iCheck\skins\minimal\grey.css" />
+    <Content Include="Vendor\iCheck\skins\minimal\grey.png" />
+    <Content Include="Vendor\iCheck\skins\minimal\minimal%402x.png" />
+    <Content Include="Vendor\iCheck\skins\minimal\minimal.css" />
+    <Content Include="Vendor\iCheck\skins\minimal\minimal.png" />
+    <Content Include="Vendor\iCheck\skins\minimal\orange%402x.png" />
+    <Content Include="Vendor\iCheck\skins\minimal\orange.css" />
+    <Content Include="Vendor\iCheck\skins\minimal\orange.png" />
+    <Content Include="Vendor\iCheck\skins\minimal\pink%402x.png" />
+    <Content Include="Vendor\iCheck\skins\minimal\pink.css" />
+    <Content Include="Vendor\iCheck\skins\minimal\pink.png" />
+    <Content Include="Vendor\iCheck\skins\minimal\purple%402x.png" />
+    <Content Include="Vendor\iCheck\skins\minimal\purple.css" />
+    <Content Include="Vendor\iCheck\skins\minimal\purple.png" />
+    <Content Include="Vendor\iCheck\skins\minimal\red%402x.png" />
+    <Content Include="Vendor\iCheck\skins\minimal\red.css" />
+    <Content Include="Vendor\iCheck\skins\minimal\red.png" />
+    <Content Include="Vendor\iCheck\skins\minimal\yellow%402x.png" />
+    <Content Include="Vendor\iCheck\skins\minimal\yellow.css" />
+    <Content Include="Vendor\iCheck\skins\minimal\yellow.png" />
+    <Content Include="Vendor\iCheck\skins\minimal\_all.css" />
+    <Content Include="Vendor\iCheck\skins\polaris\polaris%402x.png" />
+    <Content Include="Vendor\iCheck\skins\polaris\polaris.css" />
+    <Content Include="Vendor\iCheck\skins\polaris\polaris.png" />
+    <Content Include="Vendor\iCheck\skins\square\aero%402x.png" />
+    <Content Include="Vendor\iCheck\skins\square\aero.css" />
+    <Content Include="Vendor\iCheck\skins\square\aero.png" />
+    <Content Include="Vendor\iCheck\skins\square\blue%402x.png" />
+    <Content Include="Vendor\iCheck\skins\square\blue.css" />
+    <Content Include="Vendor\iCheck\skins\square\blue.png" />
+    <Content Include="Vendor\iCheck\skins\square\green%402x.png" />
+    <Content Include="Vendor\iCheck\skins\square\green.css" />
+    <Content Include="Vendor\iCheck\skins\square\green.png" />
+    <Content Include="Vendor\iCheck\skins\square\grey%402x.png" />
+    <Content Include="Vendor\iCheck\skins\square\grey.css" />
+    <Content Include="Vendor\iCheck\skins\square\grey.png" />
+    <Content Include="Vendor\iCheck\skins\square\orange%402x.png" />
+    <Content Include="Vendor\iCheck\skins\square\orange.css" />
+    <Content Include="Vendor\iCheck\skins\square\orange.png" />
+    <Content Include="Vendor\iCheck\skins\square\pink%402x.png" />
+    <Content Include="Vendor\iCheck\skins\square\pink.css" />
+    <Content Include="Vendor\iCheck\skins\square\pink.png" />
+    <Content Include="Vendor\iCheck\skins\square\purple%402x.png" />
+    <Content Include="Vendor\iCheck\skins\square\purple.css" />
+    <Content Include="Vendor\iCheck\skins\square\purple.png" />
+    <Content Include="Vendor\iCheck\skins\square\red%402x.png" />
+    <Content Include="Vendor\iCheck\skins\square\red.css" />
+    <Content Include="Vendor\iCheck\skins\square\red.png" />
+    <Content Include="Vendor\iCheck\skins\square\square%402x.png" />
+    <Content Include="Vendor\iCheck\skins\square\square.css" />
+    <Content Include="Vendor\iCheck\skins\square\square.png" />
+    <Content Include="Vendor\iCheck\skins\square\yellow%402x.png" />
+    <Content Include="Vendor\iCheck\skins\square\yellow.css" />
+    <Content Include="Vendor\iCheck\skins\square\yellow.png" />
+    <Content Include="Vendor\iCheck\skins\square\_all.css" />
     <Content Include="Vendor\jquery-validation\._jquery.validate.min.js" />
     <Content Include="Vendor\jquery-validation\jquery.validate.min.js" />
     <Content Include="Vendor\jquery\dist\jquery.js" />
@@ -519,6 +636,13 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="Views\Web.config" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Shared\_Layout_Blank.cshtml" />
+    <Content Include="Vendor\iCheck\.bower.json" />
+    <Content Include="Vendor\iCheck\bower.json" />
+    <Content Include="Vendor\iCheck\icheck.jquery.json" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

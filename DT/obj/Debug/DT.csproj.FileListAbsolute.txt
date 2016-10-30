@@ -103,3 +103,4 @@ C:\ded\projects\DTWeb\DT\bin\DT.dll
 C:\ded\projects\DTWeb\DT\bin\DT.pdb
 C:\ded\projects\DTWeb\DT\obj\Debug\DT.dll
 C:\ded\projects\DTWeb\DT\obj\Debug\DT.pdb
+C:\ded\projects\DTWeb\DT\obj\Debug\DT.csprojResolveAssemblyReference.cache

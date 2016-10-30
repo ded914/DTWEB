@@ -15,6 +15,7 @@ namespace DT
             // Homer script
             bundles.Add(new ScriptBundle("~/bundles/homer/js").Include(
                       "~/Vendor/metisMenu/dist/metisMenu.min.js",
+                      "~/Vendor/iCheck/icheck.min.js",
                       "~/Scripts/homer.js"));
 
             // Animate.css
@@ -48,6 +49,9 @@ namespace DT
             // jQuery Validation
             bundles.Add(new ScriptBundle("~/bundles/validation/js").Include(
                       "~/Vendor/jquery-validation/jquery.validate.min.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
+                        "~/Scripts/jquery.validate*"));
 
         }
 
