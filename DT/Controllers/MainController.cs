@@ -15,7 +15,7 @@ namespace DT.Controllers
             return View();
         }
 
-        public ActionResult Page2()
+        public ActionResult DTConstructor()
         {
             return View();
         }

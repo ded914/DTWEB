@@ -104,3 +104,8 @@ C:\ded\projects\DTWeb\DT\bin\DT.pdb
 C:\ded\projects\DTWeb\DT\obj\Debug\DT.dll
 C:\ded\projects\DTWeb\DT\obj\Debug\DT.pdb
 C:\ded\projects\DTWeb\DT\obj\Debug\DT.csprojResolveAssemblyReference.cache
+C:\ded\projects\DTWeb\DT\bin\Microsoft.Web.Helpers.dll
+C:\ded\projects\DTWeb\DT\bin\WebMatrix.Data.dll
+C:\ded\projects\DTWeb\DT\bin\WebMatrix.WebData.dll
+C:\ded\projects\DTWeb\DT\bin\WebMatrix.WebData.xml
+C:\ded\projects\DTWeb\DT\bin\WebMatrix.Data.xml

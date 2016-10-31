@@ -21,6 +21,11 @@
                                               
     <!-- Primary HOMER style -->
     @Styles.Render("~/bundles/homer/css")
+
+    <!--Angular tree-->
+    <link rel="stylesheet" href="~/Content/angular-ui-tree/angular-ui-tree.min.css" />
+    <link rel="stylesheet" href="~/Content/angular-ui-tree/style-tree.css" />
+
 </head>
 <body class="@Html.PageClass()">
 
@@ -54,5 +59,11 @@
 
     <!-- Handler for local scripts -->
     @RenderSection("scripts", required: false)
+
+    <!--Angular tree-->
+    <script type="text/javascript" src="~/Scripts/angular.min.js"></script>
+
+    <script type="text/javascript" src="~/Scripts/angular-ui-tree/angular-ui-tree.js"></script>
+    <script type="text/javascript" src="~/Scripts/DTApp/dtAppScript.js"></script>
 </body>
 </html>
