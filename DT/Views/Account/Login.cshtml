@@ -1,0 +1,60 @@
+﻿@using DT.Models
+@model LoginViewModel
+@{
+    Layout = "~/Views/Shared/_Layout_Blank.cshtml";
+    ViewBag.Title = "Login";
+}
+
+<div class="login-container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="text-center m-b-md">
+                <h3>PLEASE LOGIN TO APP</h3>
+                <small>This is the best app ever!</small>
+            </div>
+            <div class="hpanel">
+                <div class="panel-body">
+                    @*<form action="#" id="loginForm">*@
+                    @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { role = "form" })) {
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-group">
+                            @*<label class="control-label" for="username">Username</label>*@
+                            @Html.LabelFor(m => m.Email, new { @class = "control-label" })
+                            @*<input type="text" placeholder="example@gmail.com" title="Please enter you username" required="" value="" name="username" id="username" class="form-control">*@
+                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "example@gmail.com" })
+                            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                            <span class="help-block small">Your unique username to app</span>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Password, new { @class = "control-label" })
+                            @*<label class="control-label" for="password">Password</label>*@
+                            @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder="******" })
+                            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                            @*<input type="password" title="Please enter your password" placeholder="******" required="" value="" name="password" id="password" class="form-control">*@
+                            <span class="help-block small">Your strong password</span>
+                        </div>
+                        <div class="checkbox">
+                            <input id="_RememberMe" name="_RememberMe" type="checkbox" class="i-checks" checked>
+                            Remember login
+                            <p class="help-block small">(if this is a private computer)</p>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-success btn-block">Login</button>
+                        <a class="btn btn-default btn-block" href="@Url.Action("Register")">Register</a>
+                    }
+                    @*</form>*@
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <strong>Dynamic Text</strong> - Web Application <br /> Igor Didenko © 1987-2016
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
