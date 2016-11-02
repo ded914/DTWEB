@@ -10,7 +10,8 @@
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
 
     <!-- Primary vendor style -->
-    @Styles.Render("~/bundles/font-awesome/css")
+    @*@Styles.Render("~/bundles/font-awesome/css")*@
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.css" />
     @Styles.Render("~/bundles/animate/css")
     @Styles.Render("~/bundles/bootstrap/css")
     @Styles.Render("~/bundles/peicon7stroke/css")
@@ -27,8 +28,7 @@
     <link rel="stylesheet" href="~/Content/angular-ui-tree/style-tree.css" />
 
 </head>
-<body class="@Html.PageClass()">
-
+<body ng-app="dtApp" class="@Html.PageClass()">
     <!-- Simple splash screen-->
     <div class="splash"> <div class="color-line"></div><div class="splash-title"><h1>Homer - Responsive Admin Theme</h1><p>Special Admin Theme for small and medium webapp with very clean and aesthetic style and feel. </p><div class="spinner"> <div class="rect1"></div> <div class="rect2"></div> <div class="rect3"></div> <div class="rect4"></div> <div class="rect5"></div> </div> </div> </div>
     <!--[if lt IE 7]>

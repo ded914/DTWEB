@@ -1,8 +1,8 @@
 (function () {
     'use strict';
 
-    angular.module('DTApp', ['ui.tree'])
-    .controller('dtConstractorCtrl', function ($scope) {
+    angular.module('dtApp', ['ui.tree'])
+    .controller('DtConstructorController', function ($scope) {
 
 
         $scope.remove = function (scope) {
