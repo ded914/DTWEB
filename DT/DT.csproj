@@ -240,6 +240,8 @@
     <Content Include="Images\a7.jpg" />
     <Content Include="Images\a8.jpg" />
     <Content Include="Images\a9.jpg" />
+    <Content Include="Images\DT\069690-blue-metallic-orb-icon-alphanumeric-letter-ss.png" />
+    <Content Include="Images\DT\075436-yellow-comment-bubbles-icon-alphanumeric-letter-ff.png" />
     <Content Include="Images\DT\DTLogo.jpg" />
     <Content Include="Images\DT\DTLogo1.jpg" />
     <Content Include="Images\DT\DTLogo2.jpg" />
@@ -294,6 +296,7 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="cq.cyph" />
     <None Include="Properties\PublishProfiles\DT.pubxml" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />

@@ -63,3 +63,17 @@
 .fa:hover{
   cursor:pointer;
 }
+
+.ded-frame {
+    background-image: url(../../Images/DT/075436-yellow-comment-bubbles-icon-alphanumeric-letter-ff.png);
+    display: block;
+    width:16px;
+    height:16px;
+}
+
+.ded-slot {
+    background-image: url(../../Images/DT/069690-blue-metallic-orb-icon-alphanumeric-letter-ss.png);
+    display: block;
+    width:16px;
+    height:16px;
+}

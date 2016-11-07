@@ -28,6 +28,7 @@
                                     <span class="textContents"><strong>{{node.title}}</strong></span >
                                     <i class="fa fa-times-circle fa-2x pull-right"  data-nodrag  ng-click="remove(this)"></i>
                                     <i class="fa fa-plus-square fa-2x pull-right" data-nodrag  ng-click="newSubItem(this)"></i>*@
+                                <i data-nodrag ng-class="{'ded-frame': node.nodetype==='framelink', 'ded-slot': node.nodetype==='slot'}"></i>
                                 <i class="fa" data-nodrag ng-class="{'fa-square-o': node.checkStatus==='unchecked', 'fa-check-square-o ': node.checkStatus==='checked', 'fa-minus-square-o': node.checkStatus==='partlyChecked'}" ng-click="toggleCheck(node)" data-nodrag></i>
                                 <i class="fa" data-nodrag ng-class="{'fa-caret-square-o-right': collapsed, 'fa-caret-square-o-down': !collapsed}" ng-click="toggle(this)"></i>
                                 <i class="fa" data-nodrag ng-class="{'fa-folder': collapsed, 'fa-folder-open': !collapsed}" ng-click="toggle(this)"></i>
