@@ -135,18 +135,10 @@
                   "index": 1
               },
               {
-                  "nodetype": "slot",
-                  "nodes": [
-                    {
-                        "nodetype": "term",
-                        "title": null,
-                        "checkStatus": "unchecked",
-                        "index": null
-                    }
-                  ],
-                  "checkStatus": "unchecked",
                   "title": "Dental Cavity Presented",
-                  "index": 2
+                  "nodetype": "slot",
+                  "index": 2,
+                  "nodes": []
               },
               {
                   "nodetype": "slot",
