@@ -241,6 +241,8 @@
     <Content Include="Images\a8.jpg" />
     <Content Include="Images\a9.jpg" />
     <Content Include="Images\DT\DTLogo.jpg" />
+    <Content Include="Images\DT\DTLogo1.jpg" />
+    <Content Include="Images\DT\DTLogo2.jpg" />
     <Content Include="Images\gallery\1.jpg" />
     <Content Include="Images\gallery\10.jpg" />
     <Content Include="Images\gallery\10s.jpg" />

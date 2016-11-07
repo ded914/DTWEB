@@ -105,101 +105,222 @@
             }
         };
 
+
+        $scope.data = 
+            [
+              {
+                  "title": "Pain",
+                  "nodetype": "framelink",
+                  "checkStatus": "unchecked",
+                  "index": 0
+              },
+              {
+                  "nodetype": "slot",
+                  "nodes": [
+                    {
+                        "nodetype": "term",
+                        "title": "Breach of Form",
+                        "checkStatus": "unchecked",
+                        "index": 0
+                    },
+                    {
+                        "nodetype": "term",
+                        "title": "Breach of Color",
+                        "checkStatus": "unchecked",
+                        "index": 1
+                    }
+                  ],
+                  "checkStatus": "unchecked",
+                  "title": "Cosmetical Defect",
+                  "index": 1
+              },
+              {
+                  "nodetype": "slot",
+                  "nodes": [
+                    {
+                        "nodetype": "term",
+                        "title": null,
+                        "checkStatus": "unchecked",
+                        "index": null
+                    }
+                  ],
+                  "checkStatus": "unchecked",
+                  "title": "Dental Cavity Presented",
+                  "index": 2
+              },
+              {
+                  "nodetype": "slot",
+                  "nodes": [
+                    {
+                        "nodetype": "term",
+                        "title": "Headache",
+                        "checkStatus": "unchecked",
+                        "index": 0
+                    },
+                    {
+                        "nodetype": "term",
+                        "title": "Lack of Appetite",
+                        "checkStatus": "unchecked",
+                        "index": 1
+                    },
+                    {
+                        "nodetype": "term",
+                        "title": "SleepDisturbance",
+                        "checkStatus": "unchecked",
+                        "index": 2
+                    },
+                    {
+                        "nodetype": "term",
+                        "title": "Fewer",
+                        "checkStatus": "unchecked",
+                        "index": 3
+                    }
+                  ],
+                  "checkStatus": "unchecked",
+                  "title": "General Breaches",
+                  "index": 3
+              },
+              {
+                  "nodetype": "slot",
+                  "nodes": [
+                    {
+                        "nodetype": "term",
+                        "title": "Fillings Destroyed",
+                        "checkStatus": "unchecked",
+                        "index": 0
+                    },
+                    {
+                        "nodetype": "term",
+                        "title": "Fillings Moving",
+                        "checkStatus": "unchecked",
+                        "index": 1
+                    },
+                    {
+                        "nodetype": "term",
+                        "title": "Food Gets Stuck In The Teeth",
+                        "checkStatus": "unchecked",
+                        "index": 2
+                    }
+                  ],
+                  "checkStatus": "unchecked",
+                  "title": "Additional Complaints",
+                  "index": 4
+              },
+              {
+                  "nodetype": "slot",
+                  "nodes": [
+                    {
+                        "nodetype": "term",
+                        "title": null,
+                        "checkStatus": "unchecked",
+                        "index": null
+                    }
+                  ],
+                  "checkStatus": "unchecked",
+                  "title": "Slot with no terms",
+                  "index": 5
+              }
+            ];
         //The data
         //"Folder" has a .nodes field
         //files do not
-        $scope.data = [{
-            "id": 1,
-            "type": "dt_frame",
-            "checkStatus": "unchecked",  //unchecked, partlyChecked, checked, 
-            "title": "node1",
-            "nodes": [
-              {
-                  "id": 11,
-                  "type": "dt_slot",
-                  "checkStatus": "unchecked",
-                  "title": "node1.1",
-                  "nodes": [
-                    {
-                        "id": 111,
-                        "type": "dt_term",
-                        "checkStatus": "unchecked",
-                        "title": "node1.1.1",
-                    }
-                  ]
-              },
-              {
-                  "id": 12,
-                  "type": "dt_slot",
-                  "checkStatus": "unchecked",
-                  "title": "node1.2",
-                  "nodes": [
-                        {
-                            "id": 111,
-                            "type": "dt_term",
-                            "checkStatus": "unchecked",
-                            "title": "node1.1.1eeee",
-                        },
-                      {
-                          "id": 111,
-                          "type": "dt_term",
-                          "checkStatus": "unchecked",
-                          "title": "node1.1.1ssss",
-                      },
-                      {
-                          "id": 111,
-                          "type": "dt_term",
-                          "checkStatus": "unchecked",
-                          "title": "node1.1.1dddd",
-                      },
-                      {
-                          "id": 111,
-                          "type": "dt_term",
-                          "checkStatus": "unchecked",
-                          "title": "node1.1.1fff",
-                      }
-                  ]
-              }
-            ],
-        }, {
-            "id": 2,
-            "checkStatus": "unchecked",
-            "title": "node2",
-            "nodes": [
-              {
-                  "id": 21,
-                  "checkStatus": "unchecked",
-                  "title": "node2.1",
-              },
-              {
-                  "id": 22,
-                  "checkStatus": "unchecked",
-                  "title": "node2.2",
-              }
-            ],
-        }, {
-            "id": 3,
-            "checkStatus": "unchecked",
-            "title": "node3",
-            "nodes": [
-              {
-                  "id": 31,
-                  "checkStatus": "unchecked",
-                  "title": "node3.1",
-              }
-            ],
-        }, {
-            "id": 4,
-            "checkStatus": "unchecked",
-            "title": "node4",
-            "nodes": [
-              {
-                  "id": 41,
-                  "checkStatus": "unchecked",
-                  "title": "node4.1",
-              }
-            ],
-        }];
+        //$scope.data = [
+        //    {
+        //    "id": 1,
+        //    "type": "dt_frame",
+        //    "checkStatus": "unchecked",  //unchecked, partlyChecked, checked, 
+        //    "title": "node1",
+        //    "nodes": [
+        //      {
+        //          "id": 11,
+        //          "type": "dt_slot",
+        //          "checkStatus": "unchecked",
+        //          "title": "node1.1",
+        //          "nodes": [
+        //            {
+        //                "id": 111,
+        //                "type": "dt_term",
+        //                "checkStatus": "unchecked",
+        //                "title": "node1.1.1",
+        //            }
+        //          ]
+        //      },
+        //      {
+        //          "id": 12,
+        //          "type": "dt_slot",
+        //          "checkStatus": "unchecked",
+        //          "title": "node1.2",
+        //          "nodes": [
+        //                {
+        //                    "id": 111,
+        //                    "type": "dt_term",
+        //                    "checkStatus": "unchecked",
+        //                    "title": "node1.1.1eeee",
+        //                },
+        //              {
+        //                  "id": 111,
+        //                  "type": "dt_term",
+        //                  "checkStatus": "unchecked",
+        //                  "title": "node1.1.1ssss",
+        //              },
+        //              {
+        //                  "id": 111,
+        //                  "type": "dt_term",
+        //                  "checkStatus": "unchecked",
+        //                  "title": "node1.1.1dddd",
+        //              },
+        //              {
+        //                  "id": 111,
+        //                  "type": "dt_term",
+        //                  "checkStatus": "unchecked",
+        //                  "title": "node1.1.1fff",
+        //              }
+        //          ]
+        //      }
+        //    ],
+        //    },
+        //{
+        //    "id": 2,
+        //    "checkStatus": "unchecked",
+        //    "title": "node2",
+        //    "nodes": [
+        //      {
+        //          "id": 21,
+        //          "checkStatus": "unchecked",
+        //          "title": "node2.1",
+        //      },
+        //      {
+        //          "id": 22,
+        //          "checkStatus": "unchecked",
+        //          "title": "node2.2",
+        //      }
+        //    ],
+        //},
+        //{
+        //    "id": 3,
+        //    "checkStatus": "unchecked",
+        //    "title": "node3",
+        //    "nodes": [
+        //      {
+        //          "id": 31,
+        //          "checkStatus": "unchecked",
+        //          "title": "node3.1",
+        //      }
+        //    ],
+        //},
+        //{
+        //    "id": 4,
+        //    "checkStatus": "unchecked",
+        //    "title": "node4",
+        //    "nodes": [
+        //      {
+        //          "id": 41,
+        //          "checkStatus": "unchecked",
+        //          "title": "node4.1",
+        //      }
+        //    ],
+        //}
+        //];
     });
 
 })();
