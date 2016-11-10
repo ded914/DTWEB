@@ -64,16 +64,50 @@
   cursor:pointer;
 }
 
-.ded-frame {
-    background-image: url(../../Images/DT/075436-yellow-comment-bubbles-icon-alphanumeric-letter-ff.png);
-    display: block;
+.icon-frame {
+    background-image: url(../../Images/DT/Iconarchive-Red-Orb-Alphabet-Letter-F.png);
+    display: inline-block;
     width:16px;
     height:16px;
 }
 
-.ded-slot {
-    background-image: url(../../Images/DT/069690-blue-metallic-orb-icon-alphanumeric-letter-ss.png);
-    display: block;
+.icon-slot {
+    background-image: url(../../Images/DT/Iconexpo-Speech-Balloon-Green-Speech-balloon-green-s.png);
+    display: inline-block;
     width:16px;
     height:16px;
+}
+
+.icon-term {
+    background-image: url(../../Images/DT/Hydrattz-Multipurpose-Alphabet-Letter-T-gold.png);
+    display: inline-block;
+    width:16px;
+    height:16px;
+}
+
+.dt-frame-letter {
+    display: inline-block;
+    width:16px;
+    background-color:red;
+    color:white;
+    padding-left:4px;
+    border-radius:6px;
+}
+
+.dt-slot-letter {
+    display: inline-block;
+    width:16px;
+    background-color:yellow;
+    color:black;
+    padding-left:4px;
+    border-radius:6px;
+}
+
+.dt-term-letter {
+    display: inline-block;
+    width:16px;
+    background-color:lightblue;
+    color:black;
+    padding-left:4px;
+    border-radius:6px;
 }

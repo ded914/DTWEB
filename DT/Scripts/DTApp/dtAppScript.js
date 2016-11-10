@@ -102,6 +102,10 @@
         $scope.treeOptions = {
             dropped: function (event) {
                 $scope.verifyAllParentsCheckStatus($scope.data);
+            },
+
+            accept: function (sourceNode, destIndex) {
+                return false;
             }
         };
 

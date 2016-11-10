@@ -106,6 +106,6 @@ C:\ded\projects\DTWeb\DT\bin\zh-Hans\System.Spatial.resources.dll
 C:\ded\projects\DTWeb\DT\bin\zh-Hant\System.Spatial.resources.dll
 C:\ded\projects\DTWeb\DT\bin\pl\System.Web.Optimization.resources.dll
 C:\ded\projects\DTWeb\DT\obj\Debug\DT.csproj.App.config
-C:\ded\projects\DTWeb\DT\obj\Debug\DT.csprojResolveAssemblyReference.cache
 C:\ded\projects\DTWeb\DT\obj\Debug\DT.dll
 C:\ded\projects\DTWeb\DT\obj\Debug\DT.pdb
+C:\ded\projects\DTWeb\DT\obj\Debug\DT.csprojResolveAssemblyReference.cache
