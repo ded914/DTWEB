@@ -1,0 +1,100 @@
+[
+  {
+    "title": "Pain",
+    "nodetype": "framelink",
+    "index": 0,
+    "parent": "undefined"
+  },
+  {
+    "parent": "Complaints",
+    "nodetype": "slot",
+    "nodes": [
+      {
+        "nodetype": "term",
+        "title": "Breach of Form",
+        "index": 0,
+        "parent": "Cosmetical Defect"
+      },
+      {
+        "nodetype": "term",
+        "title": "Breach of Color",
+        "index": 1,
+        "parent": "Cosmetical Defect"
+      }
+    ],
+    "title": "Cosmetical Defect",
+    "index": 1
+  },
+  {
+    "parent": "Complaints",
+    "nodetype": "slot",
+    "nodes": [ ],
+    "title": "Dental Cavity Presented",
+    "index": 2
+  },
+  {
+    "parent": "Complaints",
+    "nodetype": "slot",
+    "nodes": [
+      {
+        "nodetype": "term",
+        "title": "Headache",
+        "index": 0,
+        "parent": "General Breaches"
+      },
+      {
+        "nodetype": "term",
+        "title": "Lack of Appetite",
+        "index": 1,
+        "parent": "General Breaches"
+      },
+      {
+        "nodetype": "term",
+        "title": "SleepDisturbance",
+        "index": 2,
+        "parent": "General Breaches"
+      },
+      {
+        "nodetype": "term",
+        "title": "Fewer",
+        "index": 3,
+        "parent": "General Breaches"
+      }
+    ],
+    "title": "General Breaches",
+    "index": 3
+  },
+  {
+    "parent": "Complaints",
+    "nodetype": "slot",
+    "nodes": [
+      {
+        "nodetype": "term",
+        "title": "Fillings Destroyed",
+        "index": 0,
+        "parent": "Additional Complaints"
+      },
+      {
+        "nodetype": "term",
+        "title": "Fillings Moving",
+        "index": 1,
+        "parent": "Additional Complaints"
+      },
+      {
+        "nodetype": "term",
+        "title": "Food Gets Stuck In The Teeth",
+        "index": 2,
+        "parent": "Additional Complaints"
+      }
+    ],
+    "title": "Additional Complaints",
+    "index": 4
+  },
+  {
+    "parent": "Complaints",
+    "nodetype": "slot",
+    "nodes": [ ],
+    "title": "Slot with no terms",
+    "index": 5
+  }
+]

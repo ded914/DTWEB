@@ -108,4 +108,12 @@ C:\ded\projects\DTWeb\DT\bin\pl\System.Web.Optimization.resources.dll
 C:\ded\projects\DTWeb\DT\obj\Debug\DT.csproj.App.config
 C:\ded\projects\DTWeb\DT\obj\Debug\DT.dll
 C:\ded\projects\DTWeb\DT\obj\Debug\DT.pdb
-C:\ded\projects\DTWeb\DT\obj\Debug\DT.csprojResolveAssemblyReference.cache
+C:\ded\projects\dtweb\DT\bin\Neo4j.Driver.dll
+C:\ded\projects\dtweb\DT\bin\Sockets.Plugin.Abstractions.dll
+C:\ded\projects\dtweb\DT\bin\Sockets.Plugin.dll
+C:\ded\projects\dtweb\DT\bin\Neo4j.Driver.pdb
+C:\ded\projects\dtweb\DT\bin\Neo4j.Driver.xml
+C:\ded\projects\dtweb\DT\bin\Sockets.Plugin.pdb
+C:\ded\projects\dtweb\DT\bin\Sockets.Plugin.xml
+C:\ded\projects\dtweb\DT\bin\Sockets.Plugin.Abstractions.pdb
+C:\ded\projects\dtweb\DT\bin\Sockets.Plugin.Abstractions.xml

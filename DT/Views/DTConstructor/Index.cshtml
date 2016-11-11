@@ -4,7 +4,7 @@
 }
 
 
-<div class="content animate-panel" ng-controller="DtConstructorController">
+<div class="content animate-panel" ng-controller="DtFrameTreeController">
     <div class="row">
         <div class="hpanel">
             <div class="col-lg-6">
@@ -19,17 +19,23 @@
                         <!-- Nested node templates -->
                         <!-- Template for parent nodes -->
                         <script type="text/ng-template" id="parent_nodes_renderer.html">
-                            <div ui-tree-handle class="tree-node tree-node-content">
+                            <div class="tree-node tree-node-content">
                                 <i class="fa pull-left" data-nodrag ng-class="{'fa-caret-square-o-right': collapsed, 'fa-caret-square-o-down': !collapsed}" ng-click="toggle(this)"></i>
-                                @*<div class="#" data-nodrag ng-class="{'icon-frame': node.nodetype==='framelink', 'icon-slot': node.nodetype==='slot'}"></div>*@
                                 <div style="display:inline-block;" ng-switch on="node.nodetype">
-                                    <span class="dt-frame-letter" ng-switch-when="framelink">F</span>
-                                    <span class="dt-slot-letter" ng-switch-when="slot">S</span>
-                                    <span class="dt-term-letter" ng-switch-when="term">T</span>
+                                    <span ui-tree-handle class="dt-frame-letter" ng-switch-when="framelink">F</span>
+                                    <span ui-tree-handle class="dt-slot-letter" ng-switch-when="slot">S</span>
+                                    <span ui-tree-handle class="dt-term-letter" ng-switch-when="term">T</span>
                                 </div>
                                 <span style="font-weight:100;">{{node.title}}</span>
-                                <i class="fa fa-times-circle pull-right" data-nodrag ng-click="remove(this)"></i>
+                                <i class="fa fa-times-circle pull-right" data-nodrag ng-click="dtremove(this)"></i>
                                 <i class="fa fa-plus-square pull-right" data-nodrag ng-click="newSubItem(this)"></i>
+                                <div class="pull-right" style="display:inline-block" ng-switch on="node.action">
+                                    <span ng-switch-when="modified" class="dt-modified">modified</span>
+                                    <span ng-switch-when="deleted" class="dt-deleted">deleted</span>
+                                    <span ng-switch-when="moved" class="dt-moved">moved</span>
+                                    <span ng-switch-when="newlycreated" class="dt-newlycreated">newlycreated</span>
+                                    <span ng-switch-when="unchanged"></span>
+                                </div>
                             </div>
                             <ol ui-tree-nodes="" ng-model="node.nodes" ng-class="{hidden: collapsed}">
                                 <li ng-repeat="node in node.nodes" ui-tree-node ng-include="(node.nodes) ? 'parent_nodes_renderer.html' :  'terminal_node_renderer.html' ">  </li>
@@ -37,15 +43,21 @@
                         </script>
                         <!-- Template for terminal nodes -->
                         <script type="text/ng-template" id="terminal_node_renderer.html">
-                            <div ui-tree-handle class="tree-node tree-node-content">
-                                @*<div class="#" data-nodrag ng-class="{'icon-term': node.nodetype==='term', 'icon-frame': node.nodetype==='framelink', 'icon-slot': node.nodetype==='slot'}"></div>*@
+                            <div class="tree-node tree-node-content">
                                 <div style="display:inline-block;" ng-switch on="node.nodetype">
-                                    <span class="dt-frame-letter" ng-switch-when="framelink">F</span>
-                                    <span data-nodrop class="dt-slot-letter" ng-switch-when="slot">S</span>
-                                    <span class="dt-term-letter" ng-switch-when="term">T</span>
+                                    <span ui-tree-handle class="dt-frame-letter" ng-switch-when="framelink">F</span>
+                                    <span ui-tree-handle class="dt-slot-letter" ng-switch-when="slot">S</span>
+                                    <span ui-tree-handle class="dt-term-letter" ng-switch-when="term">T</span>
                                 </div>
                                 <span class="textContents" style="font-weight:100;">{{node.title}}</span>
-                                <i class="fa fa-times-circle pull-right" data-nodrag ng-click="remove(this)"></i>
+                                <i class="fa fa-times-circle pull-right" data-nodrag ng-click="dtremove(this)"></i>
+                                <div class="pull-right" style="display:inline-block" ng-switch on="node.action">
+                                    <span ng-switch-when="modified" class="dt-modified">modified</span>
+                                    <span ng-switch-when="deleted" class="dt-deleted">deleted</span>
+                                    <span ng-switch-when="moved" class="dt-moved">moved</span>
+                                    <span ng-switch-when="newlycreated" class="dt-newlycreated">newlycreated</span>
+                                    <span ng-switch-when="unchanged"></span>
+                                </div>
                             </div>
                         </script>
                         <!--The Root Node-->
@@ -55,6 +67,9 @@
                                 <li ng-repeat="node in data" ui-tree-node ng-include="(node.nodes) ? 'parent_nodes_renderer.html' : 'terminal_node_renderer.html' "></li>
                             </ol>
                         </div>
+                        <div>{{dtItemSourceType}}</div>
+                        <div>{{dtItemDestType}}</div>
+                        <div>{{dtItemDestParent}}</div>
                     </div>
                 </div>
             </div>
@@ -78,6 +93,8 @@
         </div>
     </div>
 </div>
+
+
 
 
 

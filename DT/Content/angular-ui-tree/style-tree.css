@@ -12,40 +12,24 @@
     padding: 10px 10px;
 }*/
 
-.angular-ui-tree-handle {
-  display: block;
-  margin: 5px 0;
-  padding: 5px 10px;
-  color: #333;
-  text-decoration: none;
-  border: 1px solid #e4e5e7;
-  background: #f7f9fa;
-  -webkit-border-radius: 3px;
-  border-radius: 3px;
-  box-sizing: border-box;
-  -moz-box-sizing: border-box;
+/*.angular-ui-tree-handle {
+  background: none repeat scroll 0 0 #f7f9fa;
+  border: 1px dashed #e4e5e7;
+  color: inherit;
+  padding: 10px;
+  font-weight: normal;
 }
-
 .angular-ui-tree-handle:hover {
-    color: #438eb9;
-    background: #f4f6f7;
-    border-color: #dce2e8;
+  font-weight: bold;
+  cursor: pointer;
 }
-
 .angular-ui-tree-placeholder {
-  display: block;
-  position: relative;
-  margin: 0;
-  padding: 0;
-  min-height: 20px;
-  font-size: 13px;
-  line-height: 20px;
-    /*background: #f0f9ff;
-    border: 2px dashed #bed2db;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;*/
-}
+  background: #f0f9ff;
+  border: 1px dashed #e4e5e7;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}*/
 
 
 .group-title {
@@ -110,4 +94,31 @@
     color:black;
     padding-left:4px;
     border-radius:6px;
+}
+
+.dt-newlycreated {
+    background-color:gray;
+    color:white;
+    padding-left:4px;
+    padding-right:4px;
+}
+
+.dt-moved {
+    background-color:cyan;
+    padding-left:4px;
+    padding-right:4px;
+}
+
+.dt-deleted {
+    background-color:black;
+    color:white;
+    padding-left:4px;
+    padding-right:4px;
+}
+
+.dt-modified {
+    background-color:green;
+    color:white;
+    padding-left:4px;
+    padding-right:4px;
 }

@@ -1,0 +1,15 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="DT.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="DTGraphDB" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://localhost:7474/db/data</Value>
+    </Setting>
+    <Setting Name="DTGraphPassword" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Friday11</Value>
+    </Setting>
+    <Setting Name="DTGraphUser" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Neo4j</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

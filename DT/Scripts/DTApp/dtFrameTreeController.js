@@ -1,12 +1,19 @@
 (function () {
     'use strict';
 
-    angular.module('dtApp', ['ui.tree'])
-    .controller('DtConstructorController', function ($scope) {
+    //angular.module('dtApp', ['ui.tree'])
+    angular.module('dtApp').controller('DtFrameTreeController', function ($scope) {
 
 
-        $scope.remove = function (scope) {
-            scope.remove();
+        $scope.dtremove = function (scope) {
+            //scope.remove();
+            var savedaction = scope.node.action;
+            if (scope.node.action == 'deleted') {
+                scope.node.action = scope.node.savedaction;
+            } else {
+                scope.node.savedaction = scope.node.action;
+                scope.node.action = 'deleted';
+            }
         };
 
         $scope.toggle = function (scope) {
@@ -97,14 +104,50 @@
             return retVal;
         };
 
-        //This *should* update the folder checkboxes after a node drag and drop
-        //BROKEN AS OF v2.1.5, FIX EXPECTED IN 2.1.6?
+        
+        $scope.dtItemSourceType;
+
+        $scope.dtItemDestType;
+
+        $scope.dtItemDestParent;
+
         $scope.treeOptions = {
             dropped: function (event) {
                 $scope.verifyAllParentsCheckStatus($scope.data);
             },
 
-            accept: function (sourceNode, destIndex) {
+            accept: function (sourceNodeScope, destNodesScope, destIndex) {
+                var sourceType = sourceNodeScope.node.nodetype;
+                var destType = destNodesScope.node ? destNodesScope.node.nodetype : 'undefined';
+
+
+                $scope.dtItemDestType = destType;
+                $scope.dtItemSourceType = sourceType;
+
+                if (destType == 'undefined') {
+                    return false;
+                } else {
+                    return true;
+                }
+
+                
+
+                if (sourceType == 'term') {
+                    if (destType == 'undefined') {
+                        return false;
+                    }
+                    if (destType == 'slot') {
+                        
+                    }
+                }
+
+                if (sourceType == 'slot' || sourceType == 'framelink') {
+                    if (destType == 'slot' || destType == 'framelink') {
+                        return true;
+                    }
+                }
+
+                
                 return false;
             }
         };
@@ -112,111 +155,114 @@
 
         $scope.data = 
             [
-              {
-                  "title": "Pain",
-                  "nodetype": "framelink",
-                  "checkStatus": "unchecked",
-                  "index": 0
-              },
-              {
-                  "nodetype": "slot",
-                  "nodes": [
-                    {
-                        "nodetype": "term",
-                        "title": "Breach of Form",
-                        "checkStatus": "unchecked",
-                        "index": 0
-                    },
-                    {
-                        "nodetype": "term",
-                        "title": "Breach of Color",
-                        "checkStatus": "unchecked",
-                        "index": 1
-                    }
-                  ],
-                  "checkStatus": "unchecked",
-                  "title": "Cosmetical Defect",
-                  "index": 1
-              },
-              {
-                  "title": "Dental Cavity Presented",
-                  "nodetype": "slot",
-                  "index": 2,
-                  "nodes": []
-              },
-              {
-                  "nodetype": "slot",
-                  "nodes": [
-                    {
-                        "nodetype": "term",
-                        "title": "Headache",
-                        "checkStatus": "unchecked",
-                        "index": 0
-                    },
-                    {
-                        "nodetype": "term",
-                        "title": "Lack of Appetite",
-                        "checkStatus": "unchecked",
-                        "index": 1
-                    },
-                    {
-                        "nodetype": "term",
-                        "title": "SleepDisturbance",
-                        "checkStatus": "unchecked",
-                        "index": 2
-                    },
-                    {
-                        "nodetype": "term",
-                        "title": "Fewer",
-                        "checkStatus": "unchecked",
-                        "index": 3
-                    }
-                  ],
-                  "checkStatus": "unchecked",
-                  "title": "General Breaches",
-                  "index": 3
-              },
-              {
-                  "nodetype": "slot",
-                  "nodes": [
-                    {
-                        "nodetype": "term",
-                        "title": "Fillings Destroyed",
-                        "checkStatus": "unchecked",
-                        "index": 0
-                    },
-                    {
-                        "nodetype": "term",
-                        "title": "Fillings Moving",
-                        "checkStatus": "unchecked",
-                        "index": 1
-                    },
-                    {
-                        "nodetype": "term",
-                        "title": "Food Gets Stuck In The Teeth",
-                        "checkStatus": "unchecked",
-                        "index": 2
-                    }
-                  ],
-                  "checkStatus": "unchecked",
-                  "title": "Additional Complaints",
-                  "index": 4
-              },
-              {
-                  "nodetype": "slot",
-                  "nodes": [
-                    {
-                        "nodetype": "term",
-                        "title": null,
-                        "checkStatus": "unchecked",
-                        "index": null
-                    }
-                  ],
-                  "checkStatus": "unchecked",
-                  "title": "Slot with no terms",
-                  "index": 5
-              }
-            ];
+  {
+      "title": "Pain",
+      "nodetype": "framelink",
+      "action": "unchanged",
+      "index": 0,
+      "parent": "undefined"
+      
+  },
+  {
+      "parent": "Complaints",
+      "nodetype": "slot",
+      "action": "unchanged",
+      "nodes": [
+        {
+            "nodetype": "term",
+            "action": "unchanged",
+            "title": "Breach of Form",
+            "index": 0,
+            "parent": "Cosmetical Defect"
+        },
+        {
+            "nodetype": "term",
+            "action": "modified",
+            "title": "Breach of Color",
+            "index": 1,
+            "parent": "Cosmetical Defect"
+        }
+      ],
+      "title": "Cosmetical Defect",
+      "index": 1
+  },
+  {
+      "parent": "Complaints",
+      "nodetype": "slot",
+      "action": "unchanged",
+      "nodes": [],
+      "title": "Dental Cavity Presented",
+      "index": 2
+  },
+  {
+      "parent": "Complaints",
+      "nodetype": "slot",
+      "nodes": [
+        {
+            "nodetype": "term",
+            "action": "newlycreated",
+            "title": "Headache",
+            "index": 0,
+            "parent": "General Breaches"
+        },
+        {
+            "nodetype": "term",
+            "title": "Lack of Appetite",
+            "index": 1,
+            "parent": "General Breaches"
+        },
+        {
+            "nodetype": "term",
+            "action": "deleted",
+            "title": "SleepDisturbance",
+            "index": 2,
+            "parent": "General Breaches"
+        },
+        {
+            "nodetype": "term",
+            "title": "Fewer",
+            "index": 3,
+            "parent": "General Breaches"
+        }
+      ],
+      "title": "General Breaches",
+      "index": 3
+  },
+  {
+      "parent": "Complaints",
+      "nodetype": "slot",
+      "nodes": [
+        {
+            "nodetype": "term",
+            "title": "Fillings Destroyed",
+            "index": 0,
+            "parent": "Additional Complaints"
+        },
+        {
+            "nodetype": "term",
+            "title": "Fillings Moving",
+            "index": 1,
+            "parent": "Additional Complaints"
+        },
+        {
+            "nodetype": "term",
+            "title": "Food Gets Stuck In The Teeth",
+            "index": 2,
+            "parent": "Additional Complaints"
+        }
+      ],
+      "title": "Additional Complaints",
+      "index": 4
+  },
+  {
+      "parent": "Complaints",
+      "nodetype": "slot",
+      "nodes": [],
+      "title": "Slot with no terms",
+      "index": 5
+  }
+            ]
+        ;
         //The data
         //"Folder" has a .nodes field
         //files do not
