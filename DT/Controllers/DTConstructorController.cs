@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DT.DTGraph;
+using DT.Models.DTConstructor;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +13,12 @@ namespace DT.Controllers
         // GET: DTConstructor
         public ActionResult Index()
         {
-            return View();
+            DTConstructorModel model = new DTConstructorModel();
+            using (var dtNeoHelper = new DTNeoHelper()) {
+                model.JsonFrameTree = dtNeoHelper.GetFrameTreeForConstructor("Complaints");
+            }
+            
+            return View(model);
         }
     }
 }

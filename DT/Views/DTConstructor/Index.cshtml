@@ -1,10 +1,10 @@
-﻿
+﻿@model DT.Models.DTConstructor.DTConstructorModel
 @{
     ViewBag.Title = "DT Constructor";
 }
 
 
-<div class="content animate-panel" ng-controller="DtFrameTreeController">
+<div class="content animate-panel" ng-controller="DtFrameTreeController" ng-init="data = @Model.JsonFrameTree">
     <div class="row">
         <div class="hpanel">
             <div class="col-lg-6">
