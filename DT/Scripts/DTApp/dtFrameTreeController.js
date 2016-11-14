@@ -10,11 +10,15 @@
             var savedaction = scope.node.action;
             if (scope.node.action == 'deleted') {
                 scope.node.action = scope.node.savedaction;
+                scope.node.actionBackground = {};
             } else {
                 scope.node.savedaction = scope.node.action;
                 scope.node.action = 'deleted';
+                scope.node.actionBackground = { 'background-color': 'lightgray' };
             }
         };
+
+        $scope.NodeActionColor;
 
         $scope.toggle = function (scope) {
             scope.toggle();
@@ -151,6 +155,8 @@
                 return false;
             }
         };
+
+        
 
 
         $scope.data = 
