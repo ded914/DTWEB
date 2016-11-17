@@ -25,15 +25,6 @@ namespace DT.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:7474/db/data")]
-        public string DTGraphDB {
-            get {
-                return ((string)(this["DTGraphDB"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Friday11")]
         public string DTGraphPassword {
             get {
@@ -43,7 +34,16 @@ namespace DT.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Neo4j")]
+        [global::System.Configuration.DefaultSettingValueAttribute("bolt://localhost")]
+        public string DTGraphDB {
+            get {
+                return ((string)(this["DTGraphDB"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("neo4j")]
         public string DTGraphUser {
             get {
                 return ((string)(this["DTGraphUser"]));

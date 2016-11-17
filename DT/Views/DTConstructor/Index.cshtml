@@ -19,7 +19,6 @@
                         <!-- Nested node templates -->
                         <!-- Template for parent nodes -->
                         <script type="text/ng-template" id="parent_nodes_renderer.html">
-                            
                             <div class="tree-node tree-node-content" ng-style="node.actionBackground">
                                 <i class="fa pull-left" data-nodrag ng-class="{'fa-caret-square-o-right': collapsed, 'fa-caret-square-o-down': !collapsed}" ng-click="toggle(this)"></i>
                                 <div style="display:inline-block;" ng-switch on="node.nodetype">
@@ -28,7 +27,7 @@
                                     <span ui-tree-handle class="dt-term-letter" ng-switch-when="term">T</span>
                                 </div>
                                 @*<span style="font-weight:100;">{{node.title}}</span>*@
-                                <input type="text" style="font-weight:100;" ng-model="node.title">
+                                <input type="text" style="width:70%;background:transparent;border:none;" ng-model="node.title" ng-change="dtchanging(this)">
                                 <i class="fa fa-times-circle pull-right" data-nodrag ng-click="dtremove(this)"></i>
                                 <i class="fa fa-plus-square pull-right" data-nodrag ng-click="newSubItem(this)"></i>
                                 <div class="pull-right" style="display:inline-block" ng-switch on="node.action">
@@ -52,7 +51,7 @@
                                     <span ui-tree-handle class="dt-term-letter" ng-switch-when="term">T</span>
                                 </div>
                                 @*<span class="textContents" style="font-weight:100;">{{node.title}}</span>*@
-                                <input type="text" style="font-weight:100;" ng-model="node.title">
+                                <input type="text" style="width:70%;background:transparent;border:none;" ng-model="node.title" ng-change="dtchanging(this)">
                                 <i class="fa fa-times-circle pull-right" data-nodrag ng-click="dtremove(this)"></i>
                                 <div class="pull-right" style="display:inline-block" ng-switch on="node.action">
                                     <span ng-switch-when="modified" class="dt-modified">modified</span>
