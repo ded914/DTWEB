@@ -7,10 +7,11 @@
     angular.module('dtApp').controller('DtFrameTreeController', function ($scope) {
 
         $scope.AddToAction = function (scope, actiontoadd) {
+            $scope.AssureActionExists(scope);
             var res = scope.node.action;
             var actions = scope.node.action;
-            if (actions.includes(actiontoadd)) {
-                return res;
+            if (actions.indexOf(actiontoadd) != -1) {
+               return res;
             }
             var strarr = actions.split('_');
             strarr.push(actiontoadd);
@@ -19,8 +20,9 @@
         }
 
         $scope.RemoveFromAction = function (scope, actiontoremove) {
+            $scope.AssureActionExists(scope);
             var res = scope.node.action;
-            if (scope.node.action.includes(actiontoremove)) {
+            if (scope.node.action.indexOf(actiontoremove) != -1) {
                 var strarr = scope.node.action.split('_');
                 for (var i = strarr.length - 1; i >= 0; i--) {
                     if (strarr[i] === actiontoremove) {
@@ -33,11 +35,14 @@
         }
 
         $scope.ActionContains = function (scope, actiontofind) {
-            return scope.node.action.includes(actiontofind);
+            if (!scope.node) return false;
+            $scope.AssureActionExists(scope);
+            return (scope.node.action.indexOf(actiontofind) != -1);
         }
 
         $scope.ChangeStyleDependingOnAction = function (scope) {
-            if (ActionContains(scope.node.action, 'deleted')) {
+            $scope.AssureActionExists(scope);
+            if ($scope.ActionContains(scope, 'deleted')) {
                 scope.node.actionBackground = {
                     'background-color': 'lightgray'
                 };
@@ -45,12 +50,14 @@
         }
 
         $scope.AssureActionExists = function (scope) {
-            if (!scope.node.action) scope.node.action = 'unchanged';
+            if (scope.node) {
+                if (!scope.node.action) scope.node.action = 'unchanged';
+            }
         }
 
         $scope.dtremove = function (scope) {
             $scope.AssureActionExists(scope);
-            if (scope.node.action == 'deleted') {
+            if ($scope.ActionContains(scope, 'deleted')) {
                 $scope.RemoveFromAction(scope, 'deleted');
             } else {
                 $scope.AddToAction(scope, 'deleted');
