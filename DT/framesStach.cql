@@ -1,0 +1,1 @@
+match f=(head:Frame {name:'Stomatology'}) -[:LINK_TO_FRAME*]-> (lastFrame:Frame{name:'Complaints'}) return collect(nodes(f)) as frames

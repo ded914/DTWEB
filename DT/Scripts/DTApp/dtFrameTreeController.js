@@ -56,43 +56,48 @@
         }
 
         $scope.dtremove = function (scope) {
-            $scope.AssureActionExists(scope);
-            if ($scope.ActionContains(scope, 'deleted')) {
-                $scope.RemoveFromAction(scope, 'deleted');
-            } else {
-                $scope.AddToAction(scope, 'deleted');
-            }
-            $scope.ChangeStyleDependingOnAction(scope);
+            scope.remove();
+            //We are not going to colorize edit UI for now. May be later
+            //$scope.AssureActionExists(scope);
+            //if ($scope.ActionContains(scope, 'deleted')) {
+            //    $scope.RemoveFromAction(scope, 'deleted');
+            //} else {
+            //    $scope.AddToAction(scope, 'deleted');
+            //}
+            //$scope.ChangeStyleDependingOnAction(scope);
         };
 
         $scope.dtchanging = function (scope) {
             AssureActionExists(scope);
         }
 
-        $scope.NodeActionColor;
 
         $scope.toggle = function (scope) {
             scope.toggle();
-        };
-
-        $scope.moveLastToTheBegginig = function () {
-            var a = $scope.data.pop();
-            $scope.data.splice(0, 0, a);
         };
 
         var getRootNodesScope = function () {
             return angular.element(document.getElementById("tree-root")).scope();
         };
 
-        $scope.collapseAll = function () {
-            var scope = getRootNodesScope();
-            scope.collapseAll();
-        };
+        //$scope.collapseAll = function () {
+        //    var scope = getRootNodesScope();
+        //    scope.collapseAll();
+        //};
 
-        $scope.expandAll = function () {
-            var scope = getRootNodesScope();
-            scope.expandAll();
-        };
+        //$scope.expandAll = function () {
+        //    var scope = getRootNodesScope();
+        //    scope.expandAll();
+        //};
+
+       $scope.collapseAll = function () {
+           $scope.$broadcast('angular-ui-tree:collapse-all');
+       };
+
+       $scope.expandAll = function () {
+           $scope.$broadcast('angular-ui-tree:expand-all');
+       };
+
 
             //changed this functin, now it only makes terminal nodes , aka "files"
             //hence it should be only called from a parent node, aka "folder"
@@ -159,53 +164,73 @@
             return retVal;
         };
 
-
+        $scope.dtItemDestType;
         $scope.dtItemSourceType;
 
-        $scope.dtItemDestType;
-
+        $scope.dtItemSourceParent;
         $scope.dtItemDestParent;
+        $scope.dtItemDestIndex;
+
+        $scope.dtItemDestTitle;
+
+        $scope.dtTermDragError;
 
         $scope.treeOptions = {
-                dropped: function (event) {
-                $scope.verifyAllParentsCheckStatus($scope.data);
-        },
+
 
                 accept: function (sourceNodeScope, destNodesScope, destIndex) {
-                var sourceType = sourceNodeScope.node.nodetype;
-                var destType = destNodesScope.node ? destNodesScope.node.nodetype : 'undefined';
+                    var sourceType = sourceNodeScope.node.nodetype;
+                    var sourceParent = sourceNodeScope.node.parent;
+                    var destParent = destNodesScope.node ? destNodesScope.node.parent : 'undefined';
 
+                    var destTitle = destNodesScope.node ? destNodesScope.node.title : 'undefined';
+                    
+                    $scope.dtItemSourceType = sourceType;
 
-                $scope.dtItemDestType = destType;
-                $scope.dtItemSourceType = sourceType;
+                    $scope.dtItemSourceParent = sourceParent;
+                    $scope.dtItemDestParent = destParent;
+                    $scope.dtItemDestIndex = destIndex;
 
-                if (destType == 'undefined') {
+                    $scope.dtItemDestTitle = destTitle;
+
+                    if (sourceType == 'term') {
+                        if (sourceParent == destTitle) {
+                            //$scope.dtTermDragError = '';
+                            return true;
+                        }
+                        //else {
+                        //    $scope.dtTermDragError = "Error: Term can be moved only inside it's own scope!";
+                        //}
+                    }
+
+                    if (sourceType == 'slot') {
+                        if (destTitle == 'undefined') {
+                            //$scope.dtTermDragError = '';
+                            return true;
+                        }
+                        //else {
+                        //    $scope.dtTermDragError = "Error: Slot can be moved only on the frame children level!";
+                        //}
+                    }
+
+                    if (sourceType == 'framelink') {
+                        if (destTitle == 'undefined') {
+                            //$scope.dtTermDragError = '';
+                            return true;
+                        }
+                        //else {
+                        //    $scope.dtTermDragError = "Error: Frame link can be moved only on the frame children level!";
+                        //}
+                    }
+
                     return false;
-                } else {
-                    return true;
+                },
+
+                dragStop: function (event) {
+                    //$scope.dtTermDragError = '';
                 }
 
-
-
-                if (sourceType == 'term') {
-                    if (destType == 'undefined') {
-                        return false;
-                }
-                    if (destType == 'slot') {
-
-                }
-                }
-
-                if (sourceType == 'slot' || sourceType == 'framelink') {
-                    if (destType == 'slot' || destType == 'framelink') {
-                        return true;
-                }
-                }
-
-
-                return false;
-        }
-        };
+        }; //treeOptions
 
 
 
