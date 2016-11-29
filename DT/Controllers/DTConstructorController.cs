@@ -15,7 +15,10 @@ namespace DT.Controllers
         {
             DTConstructorModel model = new DTConstructorModel();
             using (var dtNeoHelper = new DTNeoHelper()) {
-                model.JsonFrameTree = dtNeoHelper.GetFrameTreeForConstructor("Complaints");
+                model.CurrentFrameName = "Complaints";
+                model.JsonFrameTree = dtNeoHelper.GetFrameTree(model.CurrentFrameName);
+                model.CurrentFrameName = "Complaints";
+                model.JsonFrameStack = dtNeoHelper.GetFrameStack(model.CurrentFrameName);
             }
             
             return View(model);

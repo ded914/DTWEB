@@ -1,4 +1,4 @@
-CREATE (Stomatology : Frame {name:'Stomatology'})
+CREATE (Stomatology : MainFrame {name:'Stomatology'})
 CREATE (Anamnesis:Frame {name:'Anamnesis'})
 CREATE (Examination:Frame {name:'Examination'})
 CREATE (Dent:Frame {name:'Dent'})
