@@ -1,1 +1,1 @@
-MATCH (f:Frame) WITH f ORDER BY f.name WITH f MATCH (mf:MainFrame) RETURN mf + collect(f) as frames
+MATCH (f:Frame) WITH f ORDER BY f.name WITH f MATCH (mf:MainFrame) WITH {title:mf.name} + collect({title:f.name}) as frames RETURN frames

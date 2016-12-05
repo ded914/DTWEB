@@ -195,39 +195,37 @@
 
                     if (sourceType == 'term') {
                         if (sourceParent == destTitle) {
-                            //$scope.dtTermDragError = '';
                             return true;
                         }
-                        //else {
-                        //    $scope.dtTermDragError = "Error: Term can be moved only inside it's own scope!";
-                        //}
                     }
 
                     if (sourceType == 'slot') {
                         if (destTitle == 'undefined') {
-                            //$scope.dtTermDragError = '';
                             return true;
                         }
-                        //else {
-                        //    $scope.dtTermDragError = "Error: Slot can be moved only on the frame children level!";
-                        //}
                     }
 
                     if (sourceType == 'framelink') {
                         if (destTitle == 'undefined') {
-                            //$scope.dtTermDragError = '';
                             return true;
                         }
-                        //else {
-                        //    $scope.dtTermDragError = "Error: Frame link can be moved only on the frame children level!";
-                        //}
+                    }
+
+                    if (sourceType == 'frame') {
+                        if (destTitle == 'undefined') {
+                            return true;
+                        }
                     }
 
                     return false;
                 },
 
+                dropped: function(e) {
+                    alert(e.source.nodeScope.$modelValue);     
+                },
+
                 dragStop: function (event) {
-                    //$scope.dtTermDragError = '';
+
                 }
 
         }; //treeOptions

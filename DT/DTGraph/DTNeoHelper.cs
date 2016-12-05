@@ -116,7 +116,11 @@ match f=(head:MainFrame) -[:LINK_TO_FRAME*]-> (lastFrame:Frame{name:{frameName}}
             if (session == null) return null;
             using (session) {
                 string cypher = @"
-MATCH (f:Frame) WITH f ORDER BY f.name WITH f MATCH (mf:MainFrame) RETURN mf + collect(f) as frames
+MATCH (f:Frame) 
+WITH f ORDER BY f.name 
+WITH f MATCH (mf:MainFrame) 
+WITH {nodetype:'mainframe', title:mf.name} + collect({nodetype:'frame', title:f.name}) as frames 
+RETURN frames
 ";
                 IStatementResult result = session.Run(cypher);
                 IRecord frameRecord = result.FirstOrDefault();
