@@ -117,4 +117,4 @@ C:\ded\projects\dtweb\DT\bin\Sockets.Plugin.pdb
 C:\ded\projects\dtweb\DT\bin\Sockets.Plugin.xml
 C:\ded\projects\dtweb\DT\bin\Sockets.Plugin.Abstractions.pdb
 C:\ded\projects\dtweb\DT\bin\Sockets.Plugin.Abstractions.xml
-C:\ded\projects\dtweb\DT\obj\Debug\DT.csprojResolveAssemblyReference.cache
+C:\ded\projects\DTWeb\DT\obj\Debug\DT.csprojResolveAssemblyReference.cache

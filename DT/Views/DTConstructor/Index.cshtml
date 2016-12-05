@@ -19,7 +19,7 @@
     </div>
 </div>
 
-<div class="content animate-panel" ng-controller="DtFrameTreeController" ng-init="data = @Model.JsonFrameTree">
+<div class="content animate-panel">
     <div class="row">
         <div class="hpanel">
             <div class="col-lg-6">
@@ -31,7 +31,7 @@
                         <h2>Frame Stack (@Model.CurrentFrameName)</h2>
                     </div>
                     <div class="panel-body">
-                        
+
                     </div>
                 </div>
             </div>
@@ -41,39 +41,38 @@
                         <div class="panel-tools">
                             <a class="showhide"><i class="fa fa-chevron-up"></i></a>
                         </div>
-                        <h2>All Frames</h2>
+                        <h2>Instructions</h2>
                     </div>
                     <div class="panel-body">
-                        
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <div class="row">
-        <div class="hpanel">
-            <div class="col-lg-6">
-                <div class="hpanel">
-                    <div class="panel-heading">
-                        <div class="panel-tools">
-                            <a class="showhide"><i class="fa fa-chevron-up"></i></a>
-                        </div>
-                        <h2>@Model.CurrentFrameName</h2>
+        <div class="col-lg-6" ng-controller="DtFrameTreeController" ng-init="dataFrame = @Model.JsonFrameTree">
+            <div class="hpanel">
+                <div class="panel-heading">
+                    <div class="panel-tools">
+                        <a class="showhide"><i class="fa fa-chevron-up"></i></a>
                     </div>
-                    <div class="panel-body">
-                        <!-- Template for nodes -->
-                        <script type="text/ng-template" id="nodes_renderer.html">
-                            <div class="tree-node tree-node-content" ng-style="node.actionBackground">
-                                <i class="fa pull-left" data-nodrag ng-class="{'fa-caret-square-o-right': collapsed, 'fa-caret-square-o-down': !collapsed}" ng-click="toggle(this)"></i>
-                                <div style="display:inline-block;" ng-switch on="node.nodetype">
-                                    <span ui-tree-handle class="dt-frame-letter" ng-switch-when="framelink">F</span>
-                                    <span ui-tree-handle class="dt-slot-letter" ng-switch-when="slot">S</span>
-                                    <span ui-tree-handle class="dt-term-letter" ng-switch-when="term">T</span>
-                                </div>
-                                <input type="text" style="width:70%;background:transparent;border:none;" ng-model="node.title" ng-change="dtchanging(this)">
-                                <i class="fa fa-times-circle pull-right" data-nodrag ng-click="dtremove(this)"></i>
-                                <i class="fa fa-plus-square pull-right" data-nodrag ng-click="newSubItem(this)"></i>
-                                @*
+                    <h2>@Model.CurrentFrameName</h2>
+                </div>
+                <div class="panel-body">
+                    <!-- Template for nodes -->
+                    <script type="text/ng-template" id="nodes_renderer.html">
+                        <div class="tree-node tree-node-content" ng-style="node.actionBackground" ng-if="node.nodetype != 'nothingtodisplay'">
+                            <i class="fa pull-left" data-nodrag ng-class="{'fa-caret-square-o-right': collapsed, 'fa-caret-square-o-down': !collapsed}" ng-click="toggle(this)"></i>
+                            <div style="display:inline-block;" ng-switch on="node.nodetype">
+                                <span ui-tree-handle class="dt-frame-letter" ng-switch-when="framelink">F</span>
+                                <span ui-tree-handle class="dt-slot-letter" ng-switch-when="slot">S</span>
+                                <span ui-tree-handle class="dt-term-letter" ng-switch-when="term">T</span>
+                            </div>
+                            <input type="text" style="width:70%;background:transparent;border:none;" ng-model="node.title" ng-change="dtchanging(this)">
+                            <i class="fa fa-times-circle pull-right" data-nodrag ng-click="dtremove(this)"></i>
+                            <i class="fa fa-plus-square pull-right" data-nodrag ng-click="newSubItem(this)"></i>
+                            @*
                                 <div class="pull-right" style="display:inline-block" ng-switch on="node.action">
                                     <span ng-switch-when="modified" class="dt-modified">modified</span>
                                     <span ng-switch-when="deleted" class="dt-deleted">deleted</span>
@@ -81,40 +80,104 @@
                                     <span ng-switch-when="newlycreated" class="dt-newlycreated">new</span>
                                     <span ng-switch-when="unchanged"></span>
                                 </div>
-                                *@
-                            </div>
-                            <ol ui-tree-nodes="" ng-model="node.nodes" ng-class="{hidden: collapsed}">
-                                <li ng-repeat="node in node.nodes" ui-tree-node ng-include="'nodes_renderer.html'">  </li>
-                            </ol>
-                        </script>
-                        <!--The Root Node-->
-                        <div ui-tree="treeOptions" id="tree-root" data-nodrop-enabled>
-                            <ol ui-tree-nodes="" ng-model="data">
-                                <li ng-repeat="node in data" ui-tree-node ng-include="'nodes_renderer.html'"></li>
-                            </ol>
+                            *@
                         </div>
-                        @*
-                            <div>{{dtTermDragError}}</div>
-                            <div>dest parent: {{dtItemDestParent}}</div>
-                            <div>dest index: {{dtItemDestIndex}}</div>
-                            <div>dest node title: {{dtItemDestTitle}}</div>
-                        *@
+                        <div class="tree-node tree-node-content" ng-if="node.nodetype == 'nothingtodisplay'">
+                            <span>{{node.title}}</span>
+                        </div>
+                        <ol ui-tree-nodes="" ng-model="node.nodes" ng-class="{hidden: collapsed}">
+                            <li ng-repeat="node in node.nodes" ui-tree-node ng-include="'nodes_renderer.html'">  </li>
+                        </ol>
+                    </script>
+                    <!--The Root Node-->
+                    <div ui-tree="treeOptions" id="tree-root" data-nodrop-enabled>
+                        <ol ui-tree-nodes="" ng-model="dataFrame">
+                            <li ng-repeat="node in dataFrame" ui-tree-node ng-include="'nodes_renderer.html'"></li>
+                        </ol>
                     </div>
+                    @*
+                        <div>{{dtTermDragError}}</div>
+                        <div>dest parent: {{dtItemDestParent}}</div>
+                        <div>dest index: {{dtItemDestIndex}}</div>
+                        <div>dest node title: {{dtItemDestTitle}}</div>
+                    *@
                 </div>
             </div>
-            <div class="col-lg-6">
-                <div class="hpanel">
-                    <div class="panel-heading">
-                        <div class="panel-tools">
-                            <a class="showhide"><i class="fa fa-chevron-up"></i></a>
-                            <a class="closebox"><i class="fa fa-times"></i></a>
-                        </div>
-                        <h2>data binding (for debug)</h2>
+            <div class="hpanel">
+                <div class="panel-heading">
+                    <div class="panel-tools">
+                        <a class="showhide"><i class="fa fa-chevron-up"></i></a>
+                        <a class="closebox"><i class="fa fa-times"></i></a>
                     </div>
-                    <div class="panel-body">
-                        <pre class="code">{{ data | json }}</pre>
-                    </div>
+                    <h2>data binding (for debug)</h2>
                 </div>
+                <div class="panel-body">
+                    <pre class="code">{{ dataFrame | json }}</pre>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6" ng-controller="DtAllFramesController" ng-init="dataAllFrames = @Model.JsonAllFrames">
+            <div class="hpanel">
+                <div class="panel-heading">
+                    <div class="panel-tools">
+                        <a class="showhide"><i class="fa fa-chevron-up"></i></a>
+                    </div>
+                    <h2>All Frames</h2>
+                </div>
+                <div class="panel-body">
+                    <table ui-tree id="tree-root" class="table table-responsive">
+                            <thead>
+                                <tr>
+                                    <th>Sort</th>
+                                    <th width="80%">Name</th>
+                                    <th>
+                                        <a class="pull-right btn btn-primary btn-xs" data-nodrag ng-click="newItem()" style="margin-right: 8px;">
+                                            <span class="glyphicon glyphicon-plus"></span>
+                                        </a>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody ui-tree-nodes ng-model="dataAllFrames">
+                                <tr ng-repeat="node in dataAllFrames" ui-tree-node>
+                                    <td>
+                                        <i class="glyphicon glyphicon-resize-vertical" ui-tree-handle></i>
+                                    </td>
+                                    <td>
+                                        <strong>{{node.title}}</strong>
+                                    </td>
+                                    <td>
+                                        <a class="pull-right btn btn-danger btn-xs" data-nodrag ng-click="remove(this)">
+                                            <span class="glyphicon glyphicon-remove"></span>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                </div>
+            </div>
+            <div class="hpanel">
+                <div class="panel-heading">
+                    <div class="panel-tools">
+                        <a class="showhide"><i class="fa fa-chevron-up"></i></a>
+                        <a class="closebox"><i class="fa fa-times"></i></a>
+                    </div>
+                    <h2>data binding (for debug)</h2>
+                </div>
+                <div class="panel-body">
+                    <pre class="code">{{ dataAllFrames | json }}</pre>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="hpanel">
+
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="hpanel">
+
             </div>
         </div>
     </div>

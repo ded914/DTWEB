@@ -217,6 +217,7 @@
     <Compile Include="Controllers\DTConstructorController.cs" />
     <Compile Include="Controllers\MainController.cs" />
     <Compile Include="DTGraph\DTNeoHelper.cs" />
+    <Compile Include="Filters\NoCacheAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -312,6 +313,7 @@
     <Content Include="Scripts\angular.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\DTApp\dtAllFramesController.js" />
     <Content Include="Scripts\DTApp\dtApp.js" />
     <Content Include="Scripts\DTApp\dtFrameTreeController.js" />
     <Content Include="Scripts\homer.js" />

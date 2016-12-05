@@ -8,12 +8,29 @@ using System.Web;
 namespace DT.DTGraph {
     public class DTNeoHelper : IDisposable {
         public void Dispose() {
-            
+
+        }
+
+        private ISession GetSession() {
+            ISession session = null;
+            try {
+                session = MvcApplication.NeoDTDriver.Session();
+            } catch {
+                session = null;
+            }
+
+            if (session == null) return null;
+            return session;
         }
 
         public string GetFrameTree(string frameName) {
             string jsonFrameTree = null;
-            using (var session = MvcApplication.NeoDTDriver.Session()) {
+
+            ISession session = GetSession();
+            if (session == null) return null;
+
+            //using (var session = MvcApplication.NeoDTDriver.Session()) {
+            using (session) { 
                 string cypher = @"
 MATCH (f:Frame{name: {frameName} })-[hs:HAS_SLOT]->(s:Slot)
 OPTIONAL MATCH (s)-[ht:HAS_TERM]->(t:Term)
@@ -38,12 +55,17 @@ RETURN frame.nodes
                     jsonFrameTree = JsonConvert.SerializeObject(frameRecord.Values["frame.nodes"]);
                 }
             }
+
             return jsonFrameTree;
         }
 
         public string GetMainFrameTree() {
             string jsonFrameTree = null;
-            using (var session = MvcApplication.NeoDTDriver.Session()) {
+
+            ISession session = GetSession();
+            if (session == null) return null;
+
+            using (session) {
                 string cypher = @"
 MATCH (f:MainFrame)-[hs:HAS_SLOT]->(s:Slot)
 OPTIONAL MATCH (s)-[ht:HAS_TERM]->(t:Term)
@@ -73,11 +95,13 @@ RETURN frame.nodes
 
         public string GetFrameStack(string frameName) {
             string jsonFrameStack = null;
-            using (var session = MvcApplication.NeoDTDriver.Session()) {
+            ISession session = GetSession();
+            if (session == null) return null;
+            using (session) {
                 string cypher = @"
 match f=(head:MainFrame) -[:LINK_TO_FRAME*]-> (lastFrame:Frame{name:{frameName}}) return collect(nodes(f)) as frames
 ";
-                IStatementResult result = session.Run(cypher, new Dictionary<string, object> { {"frameName", frameName} });
+                IStatementResult result = session.Run(cypher, new Dictionary<string, object> { { "frameName", frameName } });
                 IRecord frameRecord = result.FirstOrDefault();
                 if (frameRecord != null) {
                     jsonFrameStack = JsonConvert.SerializeObject(frameRecord.Values["frames"]);
@@ -88,7 +112,9 @@ match f=(head:MainFrame) -[:LINK_TO_FRAME*]-> (lastFrame:Frame{name:{frameName}}
 
         public string GetAllFrames() {
             string jsonFrameStack = null;
-            using (var session = MvcApplication.NeoDTDriver.Session()) {
+            ISession session = GetSession();
+            if (session == null) return null;
+            using (session) {
                 string cypher = @"
 MATCH (f:Frame) WITH f ORDER BY f.name WITH f MATCH (mf:MainFrame) RETURN mf + collect(f) as frames
 ";
